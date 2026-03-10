@@ -1,0 +1,27 @@
+src/main/resources/fabric.mod.json
+{
+  "schemaVersion": 1,
+  "id": "simplecheat",
+  "version": "1.0.0",
+  "name": "Simple Cheat Mod",
+  "description": "Fly and ESP for Fabric",
+  "authors": ["Du"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/simplecheat/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.example.mod.SimpleCheat"
+    ]
+  },
+  "mixins": [
+    "simplecheat.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.22",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}
