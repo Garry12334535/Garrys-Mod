@@ -1,0 +1,13 @@
+src/main/resources/simplecheat.mixins.json
+{
+  "required": true,
+  "package": "com.example.mod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "FlyMixin",
+    "EspMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
