@@ -1,0 +1,23 @@
+src/main/java/com/example/mod/mixin/FlyMixin.java
+package com.example.mod.mixin;
+
+import com.example.mod.SimpleCheat;
+import net.minecraft.entity.player.PlayerEntity;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(PlayerEntity.class)
+public class FlyMixin {
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void onTick(CallbackInfo ci) {
+        PlayerEntity player = (PlayerEntity) (Object) this;
+        if (SimpleCheat.enabled) {
+            player.getAbilities().allowFlying = true;
+        } else if (!player.isCreative() && !player.isSpectator()) {
+            player.getAbilities().allowFlying = false;
+            player.getAbilities().flying = false;
+        }
+    }
+}
